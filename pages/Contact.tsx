@@ -1,49 +1,123 @@
-import Layout from "@/components/Layouts"
-import { useFormik } from "formik"
+import { Formik, Form, Field, FormikProps } from "formik";
+import * as Yup from "yup";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+type FormValues = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export default function Contact() {
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      message: ''
-    },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2))
-    }
-  })
+  const [submitted, setSubmitted] = useState<boolean>(false);
+
   return (
-    <section className="ml-8">
-      <h1 className="mt-20 text-3xl">Contact</h1>
-      <div className="flex gap-32 mt-6">
-        <article className="text-6xl">
+    <section className="mx-4 lg:ml-8">
+      <h1 className="mt-8 lg:mt-20 text-3xl text-center md:text-left">Contact</h1>
+        <div className="flex-none md:flex md:gap-8 lg:gap-32 mt-6">
+        <article className="text-6xl text-center md:text-left">
           <h2>Let`s Talk</h2>
           <h2>With Me</h2>
         </article>
-        <article className="w-60">
-          <form onSubmit={formik.handleSubmit}>
-            <div className="flex flex-col mb-5">
-              <label htmlFor="name" className="text-xs">Name</label>
-              <input type="text" name="name" id="name" onChange={formik.handleChange} value={formik.values.name}
-              className="border-b border-b-solid border-b-black outline-none text-xs pt-2 font-sans"
-              />
-            </div>
-            <div className="flex flex-col mb-5">
-              <label htmlFor="email" className="text-xs">Email</label>
-              <input type="email" name="email" id="email" onChange={formik.handleChange} value={formik.values.email}
-              className="border-b border-b-solid border-b-black outline-none text-xs pt-2 font-sans"
-              />
-            </div>
-            <div className="flex flex-col mb-5">
-              <label htmlFor="message" className="text-xs">Message</label>
-              <textarea name="message" id="message" onChange={formik.handleChange} value={formik.values.message}
-                className="border-b border-b-solid border-b-black outline-none text-xs pt-4 font-sans"
-              ></textarea>
-            </div>
-            <button type="submit" className="border border-black outline-none float-right px-2 py-1 mt-4 text-xs font-semibold">Send</button>
-          </form>
-        </article>
+        <Formik
+          initialValues={{
+            name: "",
+            email: "",
+            message: "",
+          }}
+          validationSchema={Yup.object({
+            name: Yup.string().required("You must fill your full name"),
+            email: Yup.string()
+              .email("Invalid email address")
+              .required("You must fill your email"),
+            message: Yup.string().required(
+              "You must fill it with your message"
+            ),
+          })}
+          onSubmit={async (values: any) => {
+            await fetch("/api/email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(values),
+            });
+            setSubmitted(true);
+            toast.info(
+              "Message Received! I`ll send your message soon, thank you😊",
+              {
+                icon: "👍",
+              }
+            );
+          }}
+        >
+          {(formik: FormikProps<FormValues>) => (
+            <Form className="mx-12 mt-8 md:mt-0">
+              <div className="flex flex-col mb-5">
+                <label htmlFor="name" className="text-xs">
+                  Name
+                </label>
+                <Field
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="border-b border-b-solid border-b-black dark:border-b-white bg-transparent outline-none text-xs pt-1 md:pt-2 font-sans w-full md:w-60"
+                />
+                {formik.touched.name && formik.errors.name ? (
+                  <span className="text-red-500 text-xs font-sans">
+                    {formik.errors.name}
+                  </span>
+                ) : null}
+              </div>
+              <div className="flex flex-col mb-5">
+                <label htmlFor="email" className="text-xs">
+                  Email
+                </label>
+                <Field
+                  type="text"
+                  name="email"
+                  id="email"
+                  className="border-b border-b-solid border-b-black dark:border-b-white bg-transparent outline-none text-xs pt-1 md:pt-2 font-sans w-full md:w-60"
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div className="text-red-500 text-xs font-sans">
+                    {formik.errors.email}
+                  </div>
+                ) : null}
+              </div>
+              <div className="flex flex-col mb-5">
+                <label htmlFor="email" className="text-xs">
+                  Message
+                </label>
+                <Field
+                  as="textarea"
+                  name="message"
+                  id="message"
+                  className="border-b border-b-solid border-b-black dark:border-b-white bg-transparent outline-none text-xs pt-8 md:pt-2 font-sans w-full md:w-60"
+                />
+                {formik.touched.message && formik.errors.message ? (
+                  <div className="text-red-500 text-xs font-sans">
+                    {formik.errors.message}
+                  </div>
+                ) : null}
+              </div>
+              {formik.submitCount > 0 && !formik.isValid && (
+                <p>Some field are missing/invalid</p>
+              )}
+              <button
+                type="submit"
+                disabled={formik.isSubmitting || !formik.isValid}
+                className="border border-black dark:border-white outline-none  float-right px-2 py-1 md:mt-4 text-xs font-semibold"
+              >
+                Send
+              </button>
+            </Form>
+          )}
+        </Formik>
       </div>
+      <ToastContainer theme="dark" className="text-xs font-sans" />
     </section>
-  )
+  );
 }
