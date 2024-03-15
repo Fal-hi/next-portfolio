@@ -1,4 +1,3 @@
-import Layout from "@/components/Layouts";
 import { Dot } from "@/components/icons";
 
 const listsPL = [
@@ -79,13 +78,15 @@ export default function About() {
       <article>
         <h1 className="text-3xl">About Me</h1>
         <p className="font-sans text-sm mt-3">
-          A fresh graduate who has more than 4 years of experience in
-          programming and design, loves to learn new things related to
-          technology.
+          My name is Syaifal Illahi. People usually call me Fal and I`m a
+          front-end developer.
+          <br />
           <br />
           Have been a student and worked for 1 month as a full stack developer
           at a software house company, Refactory and a full stack developer
           student for 3 months at CodeXAcademy.
+          <br />
+          And now working at Ganesha Operation company as a front-end developer.
         </p>
       </article>
       <article className="mt-4 md:mt-6">

@@ -1,6 +1,5 @@
 import { Formik, Form, Field, FormikProps } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -11,12 +10,12 @@ type FormValues = {
 };
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState<boolean>(false);
-
   return (
     <section className="mx-4 lg:ml-8">
-      <h1 className="mt-8 lg:mt-20 text-3xl text-center md:text-left">Contact</h1>
-        <div className="flex-none md:flex md:gap-8 lg:gap-32 mt-6">
+      <h1 className="mt-8 lg:mt-20 text-3xl text-center md:text-left">
+        Contact
+      </h1>
+      <div className="flex-none md:flex md:gap-8 lg:gap-32 mt-6">
         <article className="text-6xl text-center md:text-left">
           <h2>Let`s Talk</h2>
           <h2>With Me</h2>
@@ -44,7 +43,6 @@ export default function Contact() {
               },
               body: JSON.stringify(values),
             });
-            setSubmitted(true);
             toast.info(
               "Message Received! I`ll send your message soon, thank you😊",
               {
