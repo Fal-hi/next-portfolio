@@ -5,6 +5,7 @@ import Web3 from "@/public/images/web3.jpg";
 import Web4 from "@/public/images/web4.jpg";
 import Web5 from "@/public/images/web5.jpg";
 import Web6 from "@/public/images/web1.jpg";
+import Web7 from "@/public/images/go-expert.png"
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useRef, useState } from "react";
@@ -22,41 +23,48 @@ interface ImageList {
 const imageLists: ImageList[] = [
   {
     id: 1,
+    name: Web7,
+    alt: "Ganesha Operation Expert",
+    tech: "Next JS, Nest JS, Tailwind CSS",
+    link: "https://ganeshaoperationexpert.com",
+  },
+  {
+    id: 2,
     name: Web1,
     alt: "Book Search",
     tech: "Next JS, Tailwind CSS",
     link: "https://book-search-fal.netlify.app",
   },
   {
-    id: 2,
+    id: 3,
     name: Web2,
     alt: "Guessing Game",
     tech: "Next JS, Tailwind CSS",
     link: "https://guessing-game-fal.vercel.app",
   },
   {
-    id: 3,
+    id: 4,
     name: Web3,
     alt: "Nest JS CRUD",
     tech: "Nest JS, PostgreSQL, Tailwind CSS",
     link: "https://github.com/Fal-hi/NestJS-CRUD",
   },
   {
-    id: 4,
+    id: 5,
     name: Web4,
     alt: "Express JS CRUD",
     tech: "Express JS, PostgreSQL, Tailwind CSS",
     link: "https://github.com/Fal-hi/ExpressJS-CRUD",
   },
   {
-    id: 5,
+    id: 6,
     name: Web5,
     alt: "React Dashboard Redux Saga",
     tech: "React JS, Redux Saga, PostgreSQL, Tailwind CSS",
     link: "https://github.com/Fal-hi/react-dashboard-redux-saga",
   },
   {
-    id: 6,
+    id: 7,
     name: Web6,
     alt: "UMKM Website",
     tech: "PHP, MySQL, Bootstrap CSS",

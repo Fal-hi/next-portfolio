@@ -1,5 +1,6 @@
 import Layout from "@/components/Layouts";
 import { Dot } from "@/components/icons";
+import Link from "next/link";
 
 const listsPL = [
   {
@@ -21,6 +22,10 @@ const listsPL = [
   {
     id: 5,
     name: "SQL",
+  },
+  {
+    id: 5,
+    name: "No-SQL",
   },
 ];
 
@@ -73,20 +78,41 @@ const listsDesign = [
   },
 ];
 
+const listsWorkOrStudy = [
+  {
+    company: "Refactory",
+    link: "https://www.linkedin.com/school/refactory-id/about/",
+    title: "Bootcamp as a Fullstack Developer | 1 month",
+  },
+  {
+    company: "CodeXAcademy",
+    link: "https://www.linkedin.com/company/codexacademyid/about/",
+    title: "Bootcamp as a Fullstack Developer | 3 month",
+  },
+  {
+    company: "Ganesha Operation",
+    link: "https://www.linkedin.com/company/ganesha-operation/about/",
+    title: "Working as a Frontend Developer | 2023 - until now",
+  },
+]
+
 export default function About() {
   return (
-    <section className="max-w-full md:max-w-[60%] my-8 lg:mt-20 mx-4 md:ml-8">
+    <section className="max-w-full my-8 lg:mt-20 mx-4 md:ml-8">
       <article>
         <h1 className="text-3xl">About Me</h1>
         <p className="font-sans text-sm mt-3">
-          A fresh graduate who has more than 4 years of experience in
-          programming and design, loves to learn new things related to
-          technology.
+        A Frontend Developer and Designer, loves to learn new things related to technology.
           <br />
-          Have been a student and worked for 1 month as a full stack developer
-          at a software house company, Refactory and a full stack developer
-          student for 3 months at CodeXAcademy.
         </p>
+        <p className="font-sans text-sm mt-3">Work/Study Experience:</p>
+        <ul className="list-decimal font-sans text-sm ml-5">
+          {listsWorkOrStudy.map((item, index) => (
+            <li>
+            <Link href={item.link} target="_blank" className="underline font-semibold">{item.company}</Link> {item.title}
+          </li>
+          ))}
+        </ul>
       </article>
       <article className="mt-4 md:mt-6">
         <h1 className="text-3xl">My Stacks</h1>
