@@ -108,7 +108,7 @@ export default function About() {
         <p className="font-sans text-sm mt-3">Work/Study Experience:</p>
         <ul className="list-decimal font-sans text-sm ml-5">
           {listsWorkOrStudy.map((item, index) => (
-            <li>
+            <li key={index}>
             <Link href={item.link} target="_blank" className="underline font-semibold">{item.company}</Link> {item.title}
           </li>
           ))}

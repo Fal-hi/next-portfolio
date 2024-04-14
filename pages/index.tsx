@@ -14,7 +14,7 @@ export default function Home() {
           </h3>
           <div>
             <Link
-              href="/Contact"
+              href="/About"
               className="px-4 py-2 border border-solid border-black dark:border-white font-sans tracking-tighter"
             >
               Let`s Get Started
