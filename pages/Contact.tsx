@@ -36,19 +36,26 @@ export default function Contact() {
             ),
           })}
           onSubmit={async (values: any) => {
-            await fetch("/api/email", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(values),
-            });
-            toast.info(
-              "Message Received! I`ll send your message soon, thank you😊",
-              {
-                icon: "👍",
-              }
-            );
+            try {
+              await fetch("/api/email", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+              });
+              toast.info(
+                "Message Received! I`ll send your message soon, thank you😊",
+                {
+                  icon: "👍",
+                }
+              );
+            } catch (error) {
+              toast.error(`${error}`, {
+                icon: "😢",
+              });
+              console.log(error, "error send message");
+            }
           }}
         >
           {(formik: FormikProps<FormValues>) => (

@@ -15,10 +15,6 @@ const listsPL = [
   },
   {
     id: 4,
-    name: "PHP",
-  },
-  {
-    id: 5,
     name: "SQL",
   },
 ];
@@ -38,6 +34,10 @@ const listsFLFE = [
   },
   {
     id: 4,
+    name: "React Native",
+  },
+  {
+    id: 5,
     name: "Next JS",
   },
 ];
@@ -50,10 +50,6 @@ const listsFLBE = [
   {
     id: 2,
     name: "Nest JS",
-  },
-  {
-    id: 3,
-    name: "Laravel",
   },
 ];
 
@@ -78,15 +74,15 @@ export default function About() {
       <article>
         <h1 className="text-3xl">About Me</h1>
         <p className="font-sans text-sm mt-3">
-          My name is Syaifal Illahi. People usually call me Fal and I`m a
+          My name is Syaifal Illahi. People usually call me Fal and {"I'm"} a
           front-end developer.
           <br />
           <br />
           Have been a student and worked for 1 month as a full stack developer
-          at a software house company, Refactory and a full stack developer
-          student for 3 months at CodeXAcademy.
+          at a software house at Refactory and a full stack developer student
+          for 3 months at CodeXAcademy.
           <br />
-          And now working at Ganesha Operation company as a front-end developer.
+          And now {"I'm"} working at Ganesha Operation as a front-end developer.
         </p>
       </article>
       <article className="mt-4 md:mt-6">

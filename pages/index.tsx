@@ -10,7 +10,7 @@ export default function Home() {
             <h1 className="mt-2 lg:mt-6">I`m A Professional</h1>
           </div>
           <h3 className="text-2xl font-light font-sans tracking-wide mt-4 lg:mt-8 mb-12">
-            FrontEnd Developer
+            Front End Developer
           </h3>
           <div>
             <Link

@@ -1,14 +1,23 @@
+import { Fragment, useState, useEffect, useRef, ReactNode } from "react";
+import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
+import {
+  Copyright,
+  Github,
+  Instagram,
+  Linkedin,
+  Menu,
+  Moon,
+  Sun,
+  X,
+} from "./icons";
+import Link from "next/link";
 import Hanger from "./Hanger";
 import Waves from "./Waves";
-import { useRouter } from "next/router";
-import { Copyright, Github, Instagram, Linkedin, Menu, Moon, Sun, X } from "./icons";
-import Link from "next/link";
-import { Fragment, useState, useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
+type LayoutProps = {
+  children: ReactNode;
+};
 
 type MenuListsProps = {
   id: number;
@@ -66,45 +75,43 @@ const iconLists: IconListsProps[] = [
 export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const {systemTheme, theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState<boolean>(false)
+  const { systemTheme, theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if(isOpen && ref.current && !ref.current.contains(e.target as Node)) {
-        setIsOpen(false)
+      if (isOpen && ref.current && !ref.current.contains(e.target as Node)) {
+        setIsOpen(false);
       }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
+    };
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isOpen])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   function renderThemeChanger() {
     if (!mounted) return null;
-  
+
     const currentTheme = theme === "system" ? systemTheme : theme;
-  
+
     const handleThemeToggle = () => {
       const newTheme = currentTheme === "dark" ? "light" : "dark";
       setTheme(newTheme);
     };
-  
+
     return (
-      <button
-        onClick={handleThemeToggle}
-      >
+      <button onClick={handleThemeToggle}>
         {currentTheme === "dark" ? (
           <Moon width={30} height={30} />
         ) : (
@@ -113,7 +120,6 @@ export default function Layout({ children }: LayoutProps) {
       </button>
     );
   }
-  
 
   return (
     <div>
@@ -124,11 +130,21 @@ export default function Layout({ children }: LayoutProps) {
               <Link href="/">FAL</Link>
             </h1>
           </div>
-          <div className="box">
-            {renderThemeChanger()}
-          </div>
+          <div className="box">{renderThemeChanger()}</div>
           <button className="mr-5 outline-none" onClick={toggleMenu}>
-            {isOpen ? <X width={35} height={35} className="fill-black dark:fill-white" /> : <Menu width={25} height={25} className="fill-black dark:fill-white" />}
+            {isOpen ? (
+              <X
+                width={35}
+                height={35}
+                className="fill-black dark:fill-white"
+              />
+            ) : (
+              <Menu
+                width={25}
+                height={25}
+                className="fill-black dark:fill-white"
+              />
+            )}
           </button>
         </div>
       </header>
