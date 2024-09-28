@@ -47,12 +47,12 @@ export default function Contact() {
               toast.info(
                 "Message Received! I`ll send your message soon, thank you😊",
                 {
-                  icon: "👍",
+                  icon: false,
                 }
               );
             } catch (error) {
               toast.error(`${error}`, {
-                icon: "😢",
+                icon: false,
               });
               console.log(error, "error send message");
             }
