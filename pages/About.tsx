@@ -4,11 +4,11 @@ import Link from "next/link";
 const listsPL = [
   {
     id: 1,
-    name: "JavaScript",
+    name: "TypeScript",
   },
   {
     id: 2,
-    name: "TypeScript",
+    name: "JavaScript",
   },
   {
     id: 3,
@@ -18,58 +18,50 @@ const listsPL = [
     id: 4,
     name: "SQL",
   },
-  {
-    id: 5,
-    name: "No-SQL",
-  },
 ];
 
 const listsFLFE = [
   {
     id: 1,
-    name: "Bootstrap CSS",
-  },
-  {
-    id: 2,
-    name: "Tailwind CSS",
-  },
-  {
-    id: 3,
     name: "React JS",
   },
   {
-    id: 4,
+    id: 2,
     name: "React Native",
   },
   {
-    id: 5,
+    id: 3,
     name: "Next JS",
+  },
+  {
+    id: 4,
+    name: "Tailwind CSS",
+  },
+  {
+    id: 5,
+    name: "Bootstrap CSS",
   },
 ];
 
 const listsFLBE = [
   {
     id: 1,
-    name: "Express JS",
+    name: "Nest JS",
   },
   {
     id: 2,
-    name: "Nest JS",
+    name: "Express JS",
   },
 ];
 
 const listsDesign = [
   {
     id: 1,
-    name: "Corel Draw",
-  },
-  {
-    id: 2,
     name: "Figma",
   },
   {
-    id: 3,
-    name: "Canva",
+    id: 2,
+    name: "Corel Draw",
   },
 ];
 
@@ -96,7 +88,7 @@ export default function About() {
     <section className="max-w-full my-8 lg:mt-20 mx-4 md:ml-8">
       <article>
         <h1 className="text-3xl">About Me</h1>
-        <p className="font-sans text-sm mt-3">
+        <p className="font-sans text-sm mt-3 md:w-5/6">
           My name is Syaifal Illahi. People usually call me Fal and {"I'm"} a
           front-end developer.
           <br />
