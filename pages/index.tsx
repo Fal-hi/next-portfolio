@@ -10,11 +10,11 @@ export default function Home() {
             <h1 className="mt-2 lg:mt-6">I`m A Professional</h1>
           </div>
           <h3 className="text-2xl font-light font-sans tracking-wide mt-4 lg:mt-8 mb-12">
-            Front End Developer
+            Frontend Developer
           </h3>
           <div>
             <Link
-              href="/Contact"
+              href="/About"
               className="px-4 py-2 border border-solid border-black dark:border-white font-sans tracking-tighter"
             >
               Let`s Get Started
