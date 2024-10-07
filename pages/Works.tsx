@@ -2,15 +2,12 @@ import { CSSProperties } from "react";
 import Image, { StaticImageData } from "next/image";
 import Web1 from "@/public/images/book-search.png";
 import Web2 from "@/public/images/guessing-game.png";
-import Web3 from "@/public/images/web3.jpg";
-import Web4 from "@/public/images/web4.jpg";
-import Web5 from "@/public/images/web5.jpg";
-import Web6 from "@/public/images/web1.jpg";
-import Web7 from "@/public/images/go-expert.png"
+import Web3 from "@/public/images/rn-ecommerce.png";
+import Web7 from "@/public/images/go-expert.png";
 import { Carousel } from "react-responsive-carousel";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Link from "next/link";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 interface ImageList {
   id: number;
@@ -22,8 +19,8 @@ interface ImageList {
 
 const imageLists: ImageList[] = [
   {
-    id: 1,
     name: Web7,
+    id: 1,
     alt: "Ganesha Operation Expert",
     tech: "Next JS, Nest JS, Tailwind CSS",
     link: "https://ganeshaoperationexpert.com",
@@ -45,30 +42,9 @@ const imageLists: ImageList[] = [
   {
     id: 4,
     name: Web3,
-    alt: "Nest JS CRUD",
-    tech: "Nest JS, PostgreSQL, Tailwind CSS",
-    link: "https://github.com/Fal-hi/NestJS-CRUD",
-  },
-  {
-    id: 5,
-    name: Web4,
-    alt: "Express JS CRUD",
-    tech: "Express JS, PostgreSQL, Tailwind CSS",
-    link: "https://github.com/Fal-hi/ExpressJS-CRUD",
-  },
-  {
-    id: 6,
-    name: Web5,
-    alt: "React Dashboard Redux Saga",
-    tech: "React JS, Redux Saga, PostgreSQL, Tailwind CSS",
-    link: "https://github.com/Fal-hi/react-dashboard-redux-saga",
-  },
-  {
-    id: 7,
-    name: Web6,
-    alt: "UMKM Website",
-    tech: "PHP, MySQL, Bootstrap CSS",
-    link: "https://github.com/Fal-hi/umkm",
+    alt: "React Native Ecommerce",
+    tech: "React Native",
+    link: "https://github.com/Fal-hi/freebies-ecommerce",
   },
 ];
 
