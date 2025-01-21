@@ -1,14 +1,10 @@
-type MenuProps = {
-  width?: number;
-  height?: number;
-  className?: string;
-};
+import { IconProps } from "@/interfaces/common";
 
-const Menu: React.FC<MenuProps> = ({
+const Menu = ({
   width = 15,
   height = 15,
   className = "fill-black",
-}: any) => {
+}: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

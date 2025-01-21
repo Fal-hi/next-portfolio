@@ -1,14 +1,10 @@
-type InstagramProps = {
-  width: number
-  height: number
-  className: string
-}
+import { IconProps } from "@/interfaces/common";
 
-const Instagram: React.FC<InstagramProps> = ({
+const Instagram = ({
   width = 13,
   height = 13,
   className = "fill-black",
-}: any) => {
+}: IconProps) => {
   return (
     <svg
       width={width}
@@ -22,7 +18,7 @@ const Instagram: React.FC<InstagramProps> = ({
         className={className}
       />
     </svg>
-  )
-}
+  );
+};
 
-export default Instagram
+export default Instagram;

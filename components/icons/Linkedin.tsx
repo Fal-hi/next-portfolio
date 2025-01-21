@@ -1,14 +1,10 @@
-type LinkedinProps = {
-  width?: number
-  height?: number
-  className?: string
-}
+import { IconProps } from "@/interfaces/common";
 
-const Linkedin: React.FC<LinkedinProps> = ({
+const Linkedin = ({
   width = 11,
   height = 11,
   className = "fill-black",
-}: any) => {
+}: IconProps) => {
   return (
     <svg
       width={width}
@@ -22,7 +18,7 @@ const Linkedin: React.FC<LinkedinProps> = ({
         className={className}
       />
     </svg>
-  )
-}
+  );
+};
 
-export default Linkedin
+export default Linkedin;

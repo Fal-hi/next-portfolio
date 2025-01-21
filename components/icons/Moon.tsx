@@ -1,14 +1,10 @@
-type MoonProps = {
-  width?: number
-  height?: number
-  className?: string
-}
+import { IconProps } from "@/interfaces/common";
 
-const Moon: React.FC<MoonProps> = ({
+const Moon = ({
   width = 20,
   height = 20,
   className = "fill-white",
-}: any) => {
+}: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -103,4 +99,4 @@ const Moon: React.FC<MoonProps> = ({
   );
 };
 
-export default Moon
+export default Moon;

@@ -1,92 +1,30 @@
 import { Fragment, useState, useEffect, useRef, ReactNode } from "react";
 import { useRouter } from "next/router";
-import { useTheme } from "next-themes";
-import {
-  Copyright,
-  Github,
-  Instagram,
-  Linkedin,
-  Menu,
-  Moon,
-  Sun,
-  X,
-} from "./icons";
+import { useThemeToggle } from "@/hooks/useThemeToggle";
+import { Copyright, Menu, Moon, Sun, X } from "./icons";
+import { iconLists, menuLists } from "@/constants";
 import Link from "next/link";
 import Hanger from "./Hanger";
 import Waves from "./Waves";
 
-type LayoutProps = {
-  children: ReactNode;
-};
-
-type MenuListsProps = {
-  id: number;
-  name: string;
-  path: string;
-};
-
-const menuLists: MenuListsProps[] = [
-  {
-    id: 1,
-    name: "Home",
-    path: "/",
-  },
-  {
-    id: 2,
-    name: "About",
-    path: "/About",
-  },
-  {
-    id: 3,
-    name: "Works",
-    path: "/Works",
-  },
-  {
-    id: 4,
-    name: "Contact",
-    path: "/Contact",
-  },
-];
-
-type IconListsProps = {
-  id: number;
-  name: any;
-  path: any;
-};
-
-const iconLists: IconListsProps[] = [
-  {
-    id: 1,
-    name: Instagram,
-    path: "https://www.instagram.com/illahisyaifal/?next=%2F",
-  },
-  {
-    id: 2,
-    name: Linkedin,
-    path: "https://linkedin.com/in/syaifal-illahi",
-  },
-  {
-    id: 3,
-    name: Github,
-    path: "https://github.com/Fal-hi",
-  },
-];
-
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { systemTheme, theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const ref = useRef<HTMLDivElement>(null);
+  const { mounted, currentTheme, toggleTheme } = useThemeToggle();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const renderThemeChanger = () => {
+    if (!mounted) return null;
+    return (
+      <button onClick={toggleTheme}>
+        {currentTheme === "dark" ? (
+          <Moon width={30} height={30} />
+        ) : (
+          <Sun width={30} height={30} />
+        )}
+      </button>
+    );
+  };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -100,27 +38,6 @@ export default function Layout({ children }: LayoutProps) {
     };
   }, [isOpen]);
 
-  function renderThemeChanger() {
-    if (!mounted) return null;
-
-    const currentTheme = theme === "system" ? systemTheme : theme;
-
-    const handleThemeToggle = () => {
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      setTheme(newTheme);
-    };
-
-    return (
-      <button onClick={handleThemeToggle}>
-        {currentTheme === "dark" ? (
-          <Moon width={30} height={30} />
-        ) : (
-          <Sun width={30} height={30} />
-        )}
-      </button>
-    );
-  }
-
   return (
     <div>
       <header className="block lg:hidden">
@@ -131,7 +48,10 @@ export default function Layout({ children }: LayoutProps) {
             </h1>
           </div>
           <div className="box">{renderThemeChanger()}</div>
-          <button className="mr-5 outline-none" onClick={toggleMenu}>
+          <button
+            className="mr-5 outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? (
               <X
                 width={35}
@@ -162,7 +82,7 @@ export default function Layout({ children }: LayoutProps) {
             </header>
             <section className="mt-12 ml-6">
               <ul>
-                {menuLists.map((menu: any) => (
+                {menuLists.map((menu) => (
                   <li key={menu.id} className="my-6">
                     <Link
                       href={menu.path}
@@ -178,10 +98,16 @@ export default function Layout({ children }: LayoutProps) {
             </section>
             <footer>
               <div className="flex gap-6 items-center mt-12">
-                {iconLists.map((item: any) => (
+                {iconLists.map((item) => (
                   <Fragment key={item.id}>
                     <Link href={item.path} target="_blank">
-                      {<item.name className="fill-black dark:fill-white" />}
+                      {
+                        <item.name
+                          width={20}
+                          height={20}
+                          className="fill-black dark:fill-white"
+                        />
+                      }
                     </Link>
                   </Fragment>
                 ))}

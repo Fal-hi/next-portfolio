@@ -1,24 +1,17 @@
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import { useThemeToggle } from "@/hooks/useThemeToggle";
 
 export default function Hanger() {
-  const { systemTheme, theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { mounted, currentTheme, toggleTheme } = useThemeToggle();
 
   function renderThemeChanger() {
     if (!mounted) return null;
 
-    const currentTheme = theme === "system" ? systemTheme : theme;
     if (currentTheme === "dark") {
       return (
         <span
           className="w-6 h-20 bg-black dark:bg-white max-w-max pt-[4px] pb-[2px] px-2 text-white dark:text-black cursor-pointer"
           role="button"
-          onClick={() => setTheme("light")}
+          onClick={toggleTheme}
         >
           Light
         </span>
@@ -28,7 +21,7 @@ export default function Hanger() {
         <span
           className="w-6 h-20 bg-black dark:bg-white max-w-max pt-[4px] pb-[2px] px-2 text-white dark:text-black cursor-pointer"
           role="button"
-          onClick={() => setTheme("dark")}
+          onClick={toggleTheme}
         >
           Dark
         </span>

@@ -1,14 +1,10 @@
-type CopyrightProps = {
-  width?: number
-  height?: number
-  className?: string
-}
+import { IconProps } from "@/interfaces/common";
 
-const Copyright: React.FC<CopyrightProps> = ({
+const Copyright = ({
   width = 8,
   height = 8,
   className = "fill-black",
-}: any) => {
+}: IconProps) => {
   return (
     <svg
       width={width}
@@ -22,7 +18,7 @@ const Copyright: React.FC<CopyrightProps> = ({
         className={className}
       />
     </svg>
-  )
-}
+  );
+};
 
-export default Copyright
+export default Copyright;

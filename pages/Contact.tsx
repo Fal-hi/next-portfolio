@@ -1,13 +1,8 @@
 import { Formik, Form, Field, FormikProps } from "formik";
 import { ToastContainer, toast } from "react-toastify";
+import { FormValues } from "@/interfaces";
 import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
-
-type FormValues = {
-  name: string;
-  email: string;
-  message: string;
-};
 
 export default function Contact() {
   return (
@@ -35,7 +30,7 @@ export default function Contact() {
               "You must fill it with your message"
             ),
           })}
-          onSubmit={async (values: any) => {
+          onSubmit={async (values) => {
             try {
               await fetch("/api/email", {
                 method: "POST",

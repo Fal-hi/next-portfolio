@@ -1,87 +1,12 @@
 import { Dot } from "@/components/icons";
+import {
+  listsDesign,
+  listsFLBE,
+  listsFLFE,
+  listsPL,
+  listsWorkOrStudy,
+} from "@/constants";
 import Link from "next/link";
-
-const listsPL = [
-  {
-    id: 1,
-    name: "TypeScript",
-  },
-  {
-    id: 2,
-    name: "JavaScript",
-  },
-  {
-    id: 3,
-    name: "Node JS",
-  },
-  {
-    id: 4,
-    name: "SQL",
-  },
-];
-
-const listsFLFE = [
-  {
-    id: 1,
-    name: "React JS",
-  },
-  {
-    id: 2,
-    name: "React Native",
-  },
-  {
-    id: 3,
-    name: "Next JS",
-  },
-  {
-    id: 4,
-    name: "Tailwind CSS",
-  },
-  {
-    id: 5,
-    name: "Bootstrap CSS",
-  },
-];
-
-const listsFLBE = [
-  {
-    id: 1,
-    name: "Nest JS",
-  },
-  {
-    id: 2,
-    name: "Express JS",
-  },
-];
-
-const listsDesign = [
-  {
-    id: 1,
-    name: "Figma",
-  },
-  {
-    id: 2,
-    name: "Corel Draw",
-  },
-];
-
-const listsWorkOrStudy = [
-  {
-    company: "Refactory",
-    link: "https://www.linkedin.com/school/refactory-id/about/",
-    title: "Bootcamp as a Fullstack Developer | 1 month",
-  },
-  {
-    company: "CodeXAcademy",
-    link: "https://www.linkedin.com/company/codexacademyid/about/",
-    title: "Bootcamp as a Fullstack Developer | 3 month",
-  },
-  {
-    company: "Ganesha Operation",
-    link: "https://www.linkedin.com/company/ganesha-operation/about/",
-    title: "Working as a Frontend Developer | 2023 - until now",
-  },
-];
 
 export default function About() {
   return (
@@ -90,18 +15,18 @@ export default function About() {
         <h1 className="text-3xl">About Me</h1>
         <p className="font-sans text-sm mt-3 md:w-5/6">
           My name is Syaifal Illahi. People usually call me Fal and {"I'm"} a
-          front-end developer.
+          frontend developer.
           <br />
           Have been a student and worked for 1 month as a full stack developer
           at a software house at Refactory and a full stack developer student
           for 3 months at CodeXAcademy.
           <br />
-          And now {"I'm"} working at Ganesha Operation as a front-end developer.
+          And now {"I'm"} working at Ganesha Operation as a frontend developer.
         </p>
         <p className="font-sans text-sm mt-3">Work/Study Experience:</p>
         <ul className="list-decimal font-sans text-sm ml-5">
-          {listsWorkOrStudy.map((item, index) => (
-            <li key={index}>
+          {listsWorkOrStudy.map((item) => (
+            <li key={item.id}>
               <Link
                 href={item.link}
                 target="_blank"
@@ -123,7 +48,7 @@ export default function About() {
                 Programming Language
               </h2>
               <ul className="font-sans text-xs">
-                {listsPL.map((item: any) => (
+                {listsPL.map((item) => (
                   <li key={item.id} className="flex gap-2 items-center mb-1">
                     <Dot className="stroke-black fill-white dark:stroke-white dark:fill-black" />
                     <p>{item.name}</p>
@@ -137,7 +62,7 @@ export default function About() {
                 <div className="frontend">
                   <h3 className="text-sm">Front End</h3>
                   <ul className="font-sans text-xs">
-                    {listsFLFE.map((item: any) => (
+                    {listsFLFE.map((item) => (
                       <li
                         key={item.id}
                         className="flex gap-2 items-center mb-1"
@@ -151,7 +76,7 @@ export default function About() {
                 <div className="backend">
                   <h3 className="text-sm">Back End</h3>
                   <ul className="font-sans text-xs">
-                    {listsFLBE.map((item: any) => (
+                    {listsFLBE.map((item) => (
                       <li
                         key={item.id}
                         className="flex gap-2 items-center mb-1"
@@ -168,7 +93,7 @@ export default function About() {
           <section className="design mt-2 md:mt-0">
             <h3>Design</h3>
             <ul className="font-sans text-xs">
-              {listsDesign.map((item: any) => (
+              {listsDesign.map((item) => (
                 <li key={item.id} className="flex gap-2 items-center mb-1">
                   <Dot className="stroke-black fill-white dark:stroke-white dark:fill-black" />
                   <p>{item.name}</p>

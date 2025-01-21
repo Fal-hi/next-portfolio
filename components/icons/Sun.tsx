@@ -1,14 +1,10 @@
-type SunProps = {
-  width?: number
-  height?: number
-  className?: string
-}
+import { IconProps } from "@/interfaces/common";
 
-const Sun: React.FC<SunProps> = ({
+const Sun = ({
   width = 20,
   height = 20,
   className = "fill-black",
-}: any) => {
+}: IconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +18,7 @@ const Sun: React.FC<SunProps> = ({
       <g
         fill="none"
         stroke="currentColor"
-        // className={className}
+        className={className}
         strokeDasharray="2"
         strokeDashoffset="2"
         strokeLinecap="round"
@@ -72,4 +68,4 @@ const Sun: React.FC<SunProps> = ({
   );
 };
 
-export default Sun
+export default Sun;

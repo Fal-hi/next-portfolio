@@ -1,14 +1,10 @@
-type GithubProps = {
-  width?: number
-  height?: number
-  className?: string
-}
+import { IconProps } from "@/interfaces/common";
 
-const Github: React.FC<GithubProps> = ({
+const Github = ({
   width = 10,
   height = 12,
   className = "fill-black",
-}: any) => {
+}: IconProps) => {
   return (
     <svg
       width={width}
@@ -22,7 +18,7 @@ const Github: React.FC<GithubProps> = ({
         className={className}
       />
     </svg>
-  )
-}
+  );
+};
 
-export default Github
+export default Github;
