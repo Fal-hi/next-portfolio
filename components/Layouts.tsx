@@ -97,7 +97,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               </ul>
             </section>
             <footer>
-              <div className="flex gap-6 items-center mt-12">
+              <div className="flex gap-2 items-center mt-12">
                 {iconLists.map((item) => (
                   <Fragment key={item.id}>
                     <Link href={item.path} target="_blank">

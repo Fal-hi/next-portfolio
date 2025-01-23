@@ -4,7 +4,7 @@ import Web3 from "@/public/images/rn-ecommerce.png";
 import Web4 from "@/public/images/rn-ranahpesta.png";
 import Web5 from "@/public/images/go-expert.png";
 import { CSSProperties } from "react";
-import { Github, Instagram, Linkedin } from "@/components/icons";
+import { Figma, Github, Instagram, Linkedin } from "@/components/icons";
 
 // Layout
 export const menuLists = [
@@ -44,6 +44,11 @@ export const iconLists = [
     id: 3,
     name: Github,
     path: "https://github.com/Fal-hi",
+  },
+  {
+    id: 4,
+    name: Figma,
+    path: "https://www.figma.com/community/file/1464190089054616382",
   },
 ];
 
