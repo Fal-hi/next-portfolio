@@ -171,8 +171,8 @@ export const imageLists = [
   {
     id: 5,
     name: Web4,
-    alt: "React Native Ranah Pesta",
-    tech: "React Native",
+    alt: "React Native Invitation Online",
+    tech: "React Native, Tailwind CSS",
     link: "https://github.com/Fal-hi/ranah-pesta",
   },
 ];
