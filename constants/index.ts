@@ -3,6 +3,7 @@ import Web2 from "@/public/images/guessing-game.png";
 import Web3 from "@/public/images/rn-ecommerce.png";
 import Web4 from "@/public/images/rn-ranahpesta.png";
 import Web5 from "@/public/images/go-expert.png";
+import Web6 from "@/public/images/go-tcr.png";
 import { CSSProperties } from "react";
 import { Figma, Github, Instagram, Linkedin } from "@/components/icons";
 
@@ -148,28 +149,35 @@ export const imageLists = [
     link: "https://ganeshaoperationexpert.com",
   },
   {
+    name: Web6,
     id: 2,
+    alt: "Ganesha Operation The Champion Race",
+    tech: "Next JS, Tailwind CSS",
+    link: "https://champion.ganeshaoperationexpert.com/",
+  },
+  {
+    id: 3,
     name: Web1,
     alt: "Book Search",
     tech: "Next JS, Tailwind CSS",
     link: "https://book-search-fal.netlify.app",
   },
   {
-    id: 3,
+    id: 4,
     name: Web2,
     alt: "Guessing Game",
     tech: "Next JS, Tailwind CSS",
     link: "https://guessing-game-fal.vercel.app",
   },
   {
-    id: 4,
+    id: 5,
     name: Web3,
     alt: "React Native Ecommerce",
     tech: "React Native",
     link: "https://github.com/Fal-hi/freebies-ecommerce",
   },
   {
-    id: 5,
+    id: 6,
     name: Web4,
     alt: "React Native Invitation Online",
     tech: "React Native, Tailwind CSS",
